@@ -4,3 +4,6 @@
 
 /.vs
 /obj
+/bin
+/BenchmarkDotNet.Artifacts/results
+/BenchmarkDotNet.Artifacts

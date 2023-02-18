@@ -11,5 +11,7 @@
         public string ResponseType { get; set; }
 
         public int ResponseNumber { get; set; }
+
+        public PayloadDto ResponsePayload { get; set; }
     }
 }

@@ -12,6 +12,6 @@
 
         public int RequestNumber { get; set; }
 
-        public RequestPayloadDto RequestPayload { get; set; }
+        public PayloadDto RequestPayload { get; set; }
     }
 }
