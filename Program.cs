@@ -1,4 +1,7 @@
-﻿using BenchmarkDotNet.Running;
+﻿using BenchmarkDotNet.Configs;
+using BenchmarkDotNet.Jobs;
+using BenchmarkDotNet.Running;
+using BenchmarkDotNet.Toolchains.InProcess.Emit;
 
 namespace BenchmarkSourceGenerator
 {
@@ -6,7 +9,12 @@ namespace BenchmarkSourceGenerator
     {
         static void Main(string[] args)
         {
-            var summary = BenchmarkRunner.Run<Benchmarks>();
+            var config = DefaultConfig.Instance
+                                        .AddJob(Job
+                                             .MediumRun
+                                             .WithLaunchCount(1)
+                                             .WithToolchain(InProcessEmitToolchain.Instance));
+            var summary = BenchmarkRunner.Run<Benchmarks>(config);
             //new Benchmarks().NewtonSoftJsonConverter();
             //new Benchmarks().SourceGeneratorConverter();
         }
