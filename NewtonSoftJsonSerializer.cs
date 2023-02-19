@@ -4,24 +4,14 @@ using Newtonsoft.Json.Serialization;
 
 namespace BenchmarkSourceGenerator
 {
-    public class NewtonSoftJsonConverter
+    public class NewtonSoftJsonSerializer
     {
-        private static JsonSerializerSettings options = new JsonSerializerSettings
+        private readonly JsonSerializerSettings options = new JsonSerializerSettings
         {
             ContractResolver = new CamelCasePropertyNamesContractResolver()
         };
 
-        public string Process(string request)
-        {
-            var requestDto = JsonConvert.DeserializeObject<RequestDto>(request);
-
-            var response = Convertor.ToResponse(requestDto);
-
-            string output = JsonConvert.SerializeObject(response);
-            return output;
-        }
-
-        public string ProcessWithOptions(string request)
+        public string Convert(string request)
         {
             var requestDto = JsonConvert.DeserializeObject<RequestDto>(request, options);
 
