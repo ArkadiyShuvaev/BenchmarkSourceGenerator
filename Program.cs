@@ -15,8 +15,10 @@ namespace BenchmarkSourceGenerator
                                              .WithLaunchCount(1)
                                              .WithToolchain(InProcessEmitToolchain.Instance));
             var summary = BenchmarkRunner.Run<Benchmarks>(config);
-            //new Benchmarks().NewtonSoftJsonConverter();
-            //new Benchmarks().SourceGeneratorConverter();
+
+            //Benchmarks benchmarks = new();
+            //benchmarks.NewtonSoftJsonSerializer();
+            //benchmarks.GeneratedSerializer();
         }
     }
 }
